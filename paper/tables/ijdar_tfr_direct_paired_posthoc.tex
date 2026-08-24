@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Clean-pair direct baselines on the 120-group controlled TFR construction. The first four rows are from the prospectively frozen experiment; the VisualDiff-style dense-SIFT reimplementation is a separately pre-specified and hash-frozen post-hoc addition with AIForge-development thresholds. AP uses 5,000 source-group bootstrap resamples; failed VisualDiff items count as AP zero. This is not an official VisualDiff reproduction or an official TFR benchmark.}
+\label{tab:tfr_direct_paired_posthoc}
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+Method & Training & Source-group AP [95\% CI] & Failed forged & Provenance \\
+\midrule
+Raw RGB difference & nonlearned & 1.0000 [1.0000, 1.0000] & 0 & original prospective \\
+SSIM distance & nonlearned & 0.9514 [0.9467, 0.9556] & 0 & original prospective \\
+PairTrace-9C & roundtrip & 0.8079 [0.7959, 0.8195] & 0 & original prospective \\
+FC-Siam-diff & roundtrip & 0.8587 [0.8495, 0.8679] & 0 & original prospective \\
+VisualDiff-style dense SIFT & nonlearned & 0.3810 [0.3562, 0.4067] & 2 & post-hoc addition \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

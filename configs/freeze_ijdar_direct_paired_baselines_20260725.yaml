@@ -1,0 +1,57 @@
+experiment:
+  name: freeze_ijdar_direct_paired_baselines_20260725
+  protocol: docs/ijdar_direct_paired_baseline_protocol_2026-07-25.md
+  expected_protocol_sha256: 6c5f4958a79609f4e19efb896cdc156251db564c8407773aa746004f68142524
+  paper_evidence: false
+  holdout_read: false
+
+ready_learned_methods:
+  - {name: pairtrace_9c_roundtrip_seed20260747, family: pairtrace_9c_roundtrip, seed: 20260747, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260747.pt, checkpoint_sha256: dcb0d77030be73dc88dedd6aef1a240e0b14b7b1b9b1e03d88294c4c5f6d28bb, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_9ch_seed20260747_summary.json, validation_summary_sha256: 033e2918f395956baef8c31d09fe9c570c0a82375f866e4866d14793eca32a4a, validation_threshold: 0.49}
+  - {name: pairtrace_9c_roundtrip_seed20260763, family: pairtrace_9c_roundtrip, seed: 20260763, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260763.pt, checkpoint_sha256: c6493cf8d6d4094868f468513c44e06f046885bf490346ea476f893e4a37764b, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_9ch_seed20260763_summary.json, validation_summary_sha256: 666e407b08311ecfd640963000d33e490c2215401f2313639d98fd3102070a2f, validation_threshold: 0.49}
+  - {name: pairtrace_9c_roundtrip_seed20260764, family: pairtrace_9c_roundtrip, seed: 20260764, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260764.pt, checkpoint_sha256: 453019ad5ea8fd59bafeff77350946eda69333ed0328b40d7192ce064b64a5de, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_9ch_seed20260764_summary.json, validation_summary_sha256: cee061c394292e66733494e1d7dc8f93c034e83fcbd84ee3e1bbfe4a86727660, validation_threshold: 0.49}
+  - {name: fc_siam_diff_roundtrip_seed20260747, family: fc_siam_diff_roundtrip, seed: 20260747, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260747.pt, checkpoint_sha256: e6254d2b79b7194d73ed54dd048b9895049668de32017f8417b876f12a630f4b, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260747_summary.json, validation_summary_sha256: 30cce9e2d944dc7eaa66f4b35ecd63cc0a51a74216b1f890a3420915852409de, validation_threshold: 0.24}
+  - {name: fc_siam_diff_roundtrip_seed20260763, family: fc_siam_diff_roundtrip, seed: 20260763, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260763.pt, checkpoint_sha256: 564147b2d266b0e7df1be30a64744bcfbfcb011acdc43e29c88521340d6672d5, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260763_summary.json, validation_summary_sha256: f668c9c89058982676acf27420dcd88137370ec929a99e44ad0c77f5dd580a9e, validation_threshold: 0.39}
+  - {name: fc_siam_diff_roundtrip_seed20260764, family: fc_siam_diff_roundtrip, seed: 20260764, checkpoint: outputs/checkpoints/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260764.pt, checkpoint_sha256: d0c753b4e284431c50a1f10a93c50cae0c416d73d731b1b4335bc1c9e77a8e20, validation_summary: outputs/tables/pairtrace_confirmatory_roundtrip_fc_siam_diff_seed20260764_summary.json, validation_summary_sha256: 8c670d57079f5a027cc2b86247d6bcffe4d324f075b15348768deaf4ad91386c, validation_threshold: 0.44}
+
+pending_learned_methods:
+  - {name: fc_siam_diff_identity_seed20260747, family: fc_siam_diff_identity_continuation, seed: 20260747, training_config: configs/ijdar_same_budget_identity_fc_siam_diff_seed20260747_20260725.yaml, checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_same_budget_identity_fc_siam_diff_seed20260747.pt}
+  - {name: fc_siam_diff_identity_seed20260763, family: fc_siam_diff_identity_continuation, seed: 20260763, training_config: configs/ijdar_same_budget_identity_fc_siam_diff_seed20260763_20260725.yaml, checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_same_budget_identity_fc_siam_diff_seed20260763.pt}
+  - {name: fc_siam_diff_identity_seed20260764, family: fc_siam_diff_identity_continuation, seed: 20260764, training_config: configs/ijdar_same_budget_identity_fc_siam_diff_seed20260764_20260725.yaml, checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_same_budget_identity_fc_siam_diff_seed20260764.pt}
+
+nonlearned_methods:
+  - name: raw_rgb_difference
+    implementation: pairtrace_registered_normalized_rgb_difference_v1
+    calibration_status: ready_development_only
+    calibration_summary: outputs/tables/ijdar_raw_ssim_threshold_adoption_summary_20260725.json
+    calibration_summary_sha256: b118dbf27b4892b5765777c4121427436afeb192232965a23369e8a09da91299
+    threshold_artifact: outputs/tables/ijdar_raw_ssim_adopted_thresholds_20260725.json
+    threshold_artifact_sha256: 1b17d830d0b9cb624999dae70b9e5a4f3b2e1f2155f4238759daf15a3e8c45d6
+    pixel_threshold: 0.012
+  - name: ssim_distance
+    implementation: pairtrace_opencv_gaussian_ssim_v1
+    calibration_status: ready_development_only
+    calibration_summary: outputs/tables/ijdar_raw_ssim_threshold_adoption_summary_20260725.json
+    calibration_summary_sha256: b118dbf27b4892b5765777c4121427436afeb192232965a23369e8a09da91299
+    threshold_artifact: outputs/tables/ijdar_raw_ssim_adopted_thresholds_20260725.json
+    threshold_artifact_sha256: 1b17d830d0b9cb624999dae70b9e5a4f3b2e1f2155f4238759daf15a3e8c45d6
+    pixel_threshold: 0.021
+  - name: visualdiff_style_dense_sift
+    implementation: pairtrace_visualdiff_style_dense_sift_v1
+    source: src/pairtrace_doc/baselines/visualdiff_style.py
+    source_sha256: 643fcf30532ef504a1381158f28ed317fffe0fea67a7c838ade0185f4c43facd
+    official_implementation: false
+    calibration_status: ready_development_only
+    calibration_summary: outputs/tables/visualdiff_aiforge_development100_summary_20260725.json
+    calibration_summary_sha256: 846c97e1f94fd4e79d0a16006d1b7f064763d90addc3d471617c1bb16fc18e4e
+    threshold_artifact: outputs/tables/visualdiff_aiforge_development100_thresholds_20260725.json
+    threshold_artifact_sha256: 5b764809acaef42f43c10f816f60bb7c23f3fcfc1b4fd1883d3a82f2ee7864e9
+    pixel_threshold: 0.005
+    image_threshold: 0.001
+
+runtime:
+  training_allowed: false
+  new_evaluation_read_allowed: false
+
+paths:
+  registry: outputs/manifests/ijdar_direct_paired_baseline_registry_20260725.jsonl
+  summary: outputs/tables/ijdar_direct_paired_baseline_freeze_20260725.json

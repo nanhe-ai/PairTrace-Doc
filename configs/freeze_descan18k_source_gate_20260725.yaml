@@ -1,0 +1,40 @@
+experiment:
+  name: freeze_descan18k_source_gate_20260725
+  protocol: docs/descan18k_real_scan_evaluation_protocol_2026-07-25.md
+  expected_protocol_sha256: 2280aa5193e6b07be8c4dd23b780cc21c19e63f3ac86d2b249ef7a0b56dfb9ec
+  editor_specification: docs/descan18k_edit_generator_specification_2026-07-25.md
+  expected_editor_specification_sha256: 034203984610802f9e445bdb6c6be4408321325030b1b559ca44152ac9c060a7
+  editor_source: src/pairtrace_doc/descan_edits.py
+  expected_editor_source_sha256: 2f604a31c55c68b7393a061f38c38462d606a8cff6bf711671769ea9f74855ca
+  paper_evidence: false
+
+source:
+  dataset: DESCAN-18K
+  owner: ENCLab
+  repository_url: https://huggingface.co/datasets/ENCLab/DESCAN-18K
+  observed_repository_revision: b5617e5ef9217116daa0ed2740394cc1ef2e03d7
+  archive: Test.zip
+  expected_archive_bytes: 767709023
+  expected_archive_sha256: 93c904410f409c1a393e5e79b35bf1748cb5d0ad2d18d1e1958d32213a9d8304
+  expected_pairs: 360
+  expected_scan_directory: Test/scan
+  expected_clean_directory: Test/clean
+  expected_format: TIFF
+
+license:
+  status: clarification_required
+  reason: official_release_has_no_explicit_dataset_license_metadata_or_license_file
+  clarification_request_draft: docs/descan18k_license_clarification_request_draft_2026-07-25.md
+  written_author_clarification: null
+  institutional_approval: null
+
+runtime:
+  license_gate_open: false
+  archive_download_authorized: false
+  archive_read_authorized: false
+  dataset_image_decode_authorized: false
+  model_scoring_authorized: false
+
+paths:
+  registry: outputs/manifests/descan18k_source_gate_registry_20260725.jsonl
+  summary: outputs/tables/descan18k_source_gate_freeze_20260725.json

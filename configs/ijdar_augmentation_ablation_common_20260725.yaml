@@ -1,0 +1,113 @@
+experiment:
+  name: ijdar_augmentation_ablation
+  stage: ijdar_same_start_same_budget_augmentation_ablation
+  seed: 20260747
+  arm: explicit_9ch
+  paper_evidence: false
+  protocol: docs/ijdar_augmentation_mechanism_ablation_protocol_2026-07-25.md
+  expected_protocol_sha256: 4766ca13465cb8ca699923967f88f59b9403265e54145d30323606164c374227
+  warm_start_manifest: outputs/manifests/ijdar_augmentation_ablation_warm_starts_20260725.json
+  expected_warm_start_manifest_sha256: 4623738a29f08d122b1beef3a5dcd88f55e47db0dd315cd3ff5081e8e7cdda8f
+  ablation: reference_resize_restore
+
+data:
+  manifest: data/processed/aiforge_resampling_robust_teacher_1000.jsonl
+  expected_manifest_sha256: 6d42577767bf4af18fac8d6789ab5e88edb9bfda678d4f2a157a08dd4a25ace5
+  expected_freeze_id: 78e064697f80527daa1d4c1cd15df8c763dd3de60f96dcf0c3dda70e1b305736
+  expected_train_records: 1000
+  max_train_pairs: null
+  validation_manifest: data/processed/aiforge_generator_balanced_1000.jsonl
+  expected_validation_manifest_sha256: 26c261adc68f86de733db02dab60f6849dd618e90ac5cb5a81cbd639ce5edc11
+  validation_role_field: pilot_role
+  validation_role: validation
+  expected_validation_records: 150
+  max_validation_pairs: null
+
+model:
+  architecture: resnet18_unet_pairtrace_reference_resize_restore_continuation
+  teacher_input_channels: 9
+  encoder_weights: downloads/torchvision/resnet18-f37072fd.pth
+  encoder_weights_sha256: f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec
+  warm_start_checkpoint: outputs/checkpoints/pairtrace_confirmatory_clean_9ch_seed20260747.pt
+  warm_start_checkpoint_sha256: f2a46f704c36da81624abcff081b6896a08275d308d00b33e1184e30242fd4f7
+  teacher_conv1_coefficients: {forged: 0.25, authentic: 0.25, signed_difference: 0.50}
+
+preprocessing:
+  cache_schema_version: 1
+  max_side: 1024
+  crop_size: 512
+  imagenet_mean: [0.485, 0.456, 0.406]
+  imagenet_std: [0.229, 0.224, 0.225]
+
+sampling:
+  generator_field: selected_generator
+  generator_probabilities: {gemini-nano: 0.3333333333333333, openai-gpt-image-2: 0.3333333333333333, qwen-inpaint: 0.3333333333333334}
+  teacher_forged_positive_probability: 0.50
+  teacher_forged_random_probability: 0.25
+  teacher_authentic_random_probability: 0.25
+  brightness_contrast_probability: 0.50
+  brightness_delta: 0.15
+  contrast_delta: 0.15
+  jpeg_probability: 0.25
+  jpeg_quality_min: 75
+  jpeg_quality_max: 100
+
+augmentation:
+  translation_max_pixels: 12.0
+  affine_rotation_max_degrees: 2.0
+  affine_scale_delta: 0.02
+  affine_translation_max_pixels: 12.0
+  perspective_corner_jitter_fraction: 0.01
+  resize_factor_min: 0.94
+  resize_factor_max: 1.06
+  blur_sigma_min: 0.5
+  blur_sigma_max: 2.0
+  asymmetric_jpeg_quality_min: 50
+  asymmetric_jpeg_quality_max: 90
+  interpolation: bilinear
+  border_mode: reflect_101
+
+training:
+  epochs: 6
+  steps_per_epoch: 500
+  expected_optimizer_steps: 3000
+  batch_size: 8
+  num_workers: 4
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  bce_positive_weight: 4.0
+  bce_loss_weight: 1.0
+  dice_loss_weight: 1.0
+  amp: true
+  gradient_clip_norm: 1.0
+  checkpoint_rule: fixed_final_epoch
+  validation_tile_size: 512
+  validation_tile_stride: 384
+  validation_tile_batch_size: 8
+
+operating_point:
+  candidate_min: 0.00
+  candidate_max: 1.00
+  candidate_step: 0.01
+  max_authentic_fpr: 0.01
+
+runtime:
+  device: cuda:0
+  gpu_launch_authorized: true
+  resampling_teacher_training_authorized: true
+  viewed_development_read_allowed: false
+  unseen_development_read_allowed: false
+  final_reserve_read_allowed: false
+  multi_seed_authorized: false
+  environment: {OMP_NUM_THREADS: "4", MKL_NUM_THREADS: "4", OPENBLAS_NUM_THREADS: "4"}
+
+paths:
+  scratch_env: PAIRTRACE_SCRATCH
+  scratch_default: ../autodl-tmp/pairtrace-doc
+  pair_cache_dir: data/cache/student_pairs_1024
+  checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_ablation_reference_resize_restore_seed20260747.pt
+  epoch_log: outputs/logs/ijdar_ablation_reference_resize_restore_seed20260747_epochs.jsonl
+  summary: outputs/tables/ijdar_ablation_reference_resize_restore_seed20260747_summary.json
+  log: outputs/logs/ijdar_ablation_reference_resize_restore_seed20260747.log
+  prediction_records: outputs/predictions/ijdar_ablation_reference_resize_restore_seed20260747_validation.jsonl
+  metrics: outputs/tables/ijdar_ablation_reference_resize_restore_seed20260747_validation.csv

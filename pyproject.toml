@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pairtrace-doc"
+version = "0.1.0"
+description = "Leakage-safe research pipeline for cross-generator AI-edited document forgery localization"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+classifiers = [
+  "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+  "numpy>=1.26",
+  "Pillow>=10.0",
+  "PyYAML>=6.0",
+  "jsonschema>=4.22",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+baselines = [
+  "yacs==0.1.8",
+]
+paired-baselines = [
+  "lpips==0.1.4",
+]
+external-data = [
+  "lmdb>=1.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

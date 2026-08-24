@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-07-25",
+  "paper_evidence": false,
+  "holdout_read": false,
+  "purpose": "freeze PairTrace-9C warm starts and reusable controls for augmentation ablations",
+  "protocol": "docs/ijdar_augmentation_mechanism_ablation_protocol_2026-07-25.md",
+  "records": [
+    {"slug": "9ch", "arm": "explicit_9ch", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_9ch_seed20260747.pt", "sha256": "f2a46f704c36da81624abcff081b6896a08275d308d00b33e1184e30242fd4f7"},
+    {"slug": "9ch", "arm": "explicit_9ch", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_9ch_seed20260763.pt", "sha256": "c73124e0eae7905aa78f4533954159c4b064f520e35f1bbd5261124b59509501"},
+    {"slug": "9ch", "arm": "explicit_9ch", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_9ch_seed20260764.pt", "sha256": "ffe4e8b1c308a39ab137ae96a79188b2e82b692c075176f822806f0c84552782"}
+  ],
+  "existing_controls": [
+    {"ablation": "identity", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_continuation_9ch_seed20260747.pt", "sha256": "93f4af7467be0ffe039ceda66291419a8f6226bd309a582cba6aeba79fcfab8f"},
+    {"ablation": "identity", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_continuation_9ch_seed20260763.pt", "sha256": "050e731e14e1b6bcba38c9600a5867e77cf57e0b378b9cc816ababab3b95a214"},
+    {"ablation": "identity", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_continuation_9ch_seed20260764.pt", "sha256": "5f83305e931cd04852454c6f2baa99120308531c078b1d07390f6ee54f5de6f9"},
+    {"ablation": "reference_roundtrip", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260747.pt", "sha256": "dcb0d77030be73dc88dedd6aef1a240e0b14b7b1b9b1e03d88294c4c5f6d28bb"},
+    {"ablation": "reference_roundtrip", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260763.pt", "sha256": "c6493cf8d6d4094868f468513c44e06f046885bf490346ea476f893e4a37764b"},
+    {"ablation": "reference_roundtrip", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_roundtrip_9ch_seed20260764.pt", "sha256": "453019ad5ea8fd59bafeff77350946eda69333ed0328b40d7192ce064b64a5de"}
+  ]
+}

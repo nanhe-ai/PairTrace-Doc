@@ -1,0 +1,6 @@
+base_config: configs/ijdar_augmentation_ablation_common_20260725.yaml
+expected_base_config_sha256: 5f9dbfbf88f782bf777be8af09d54bd30d7f4daa0e9ab2f56185a33b5f006fad
+experiment: {name: ijdar_ablation_candidate_roundtrip_seed20260764, seed: 20260764, ablation: candidate_roundtrip}
+model: {architecture: resnet18_unet_pairtrace_candidate_roundtrip_continuation, warm_start_checkpoint: outputs/checkpoints/pairtrace_confirmatory_clean_9ch_seed20260764.pt, warm_start_checkpoint_sha256: ffe4e8b1c308a39ab137ae96a79188b2e82b692c075176f822806f0c84552782}
+augmentation: {geometry_probabilities: {clean: 0.25, translation: 0.25, affine: 0.25, perspective: 0.25}, transform_application: candidate_roundtrip_only}
+paths: {checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_ablation_candidate_roundtrip_seed20260764.pt, epoch_log: outputs/logs/ijdar_ablation_candidate_roundtrip_seed20260764_epochs.jsonl, summary: outputs/tables/ijdar_ablation_candidate_roundtrip_seed20260764_summary.json, log: outputs/logs/ijdar_ablation_candidate_roundtrip_seed20260764.log, prediction_records: outputs/predictions/ijdar_ablation_candidate_roundtrip_seed20260764_validation.jsonl, metrics: outputs/tables/ijdar_ablation_candidate_roundtrip_seed20260764_validation.csv}

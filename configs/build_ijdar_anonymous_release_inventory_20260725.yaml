@@ -1,0 +1,48 @@
+experiment:
+  name: build_ijdar_anonymous_release_inventory_20260725
+  paper_evidence: false
+  package_copy_authorized: false
+  checkpoint_redistribution_authorized: false
+
+include_patterns:
+  - src/pairtrace_doc/**/*.py
+  - configs/ijdar_*_20260725.yaml
+  - configs/freeze_ijdar_*_20260725.yaml
+  - configs/freeze_descan18k_*_20260725.yaml
+  - configs/materialize_descan18k_*_20260725.yaml
+  - configs/calibrate_visualdiff_*_20260725.yaml
+  - configs/build_ijdar_anonymous_release_inventory_20260725.yaml
+  - tests/test_*ijdar*.py
+  - tests/test_*visualdiff*.py
+  - tests/test_*descan*.py
+  - docs/ijdar_*_2026-07-25.md
+  - docs/descan18k_*_2026-07-25.md
+  - docs/manuscript_citation_verification_2026-07-25.md
+  - paper/main.tex
+  - paper/references.bib
+  - paper/tables/*.tex
+  - paper/scripts/*.py
+  - paper/figures/*
+  - outputs/manifests/ijdar_*_20260725.json
+  - outputs/manifests/ijdar_*_20260725.jsonl
+  - outputs/manifests/descan18k_*_20260725.jsonl
+  - outputs/tables/ijdar_*_20260725.json
+  - outputs/tables/descan18k_*_20260725.json
+
+prohibited_prefixes:
+  - data/raw
+  - downloads
+  - external_data
+  - outputs/predictions
+  - outputs/checkpoints
+  - .git
+
+checkpoint_manifests:
+  - outputs/manifests/ijdar_same_budget_warm_starts_20260725.json
+  - outputs/manifests/ijdar_augmentation_ablation_warm_starts_20260725.json
+  - outputs/manifests/ijdar_direct_paired_baseline_registry_20260725.jsonl
+
+paths:
+  inventory: outputs/manifests/ijdar_anonymous_release_inventory_20260725.jsonl
+  summary: outputs/tables/ijdar_anonymous_release_inventory_summary_20260725.json
+  checksum_file: outputs/manifests/ijdar_anonymous_release_sha256_20260725.txt

@@ -1,0 +1,4 @@
+{"example_id":"toy-authentic","source_document_id":"doc-a","is_forged":false,"generator":"none","scores":[0.02,0.08,0.15,0.04],"mask":[0,0,0,0],"status":"ok"}
+{"example_id":"toy-forged-1","source_document_id":"doc-b","is_forged":true,"generator":"toy-edit-a","scores":[0.10,0.92,0.41,0.18],"mask":[0,1,1,0],"status":"ok"}
+{"example_id":"toy-forged-2","source_document_id":"doc-c","is_forged":true,"generator":"toy-edit-b","scores":[0.22,0.35,0.81,0.12],"mask":[0,0,1,0],"status":"ok"}
+

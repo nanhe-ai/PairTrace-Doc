@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\caption{Matched-continuation evidence for reference-only round-trip
+training. Positive $\Delta$ means that the round-trip continuation exceeds
+its equal-budget geometry-disabled continuation (all geometric-perturbation
+probabilities set to zero). TFR values are three-seed means;
+DESCAN values are the range over three predeclared seed-wise effects, whose
+group-bootstrap intervals all exclude zero.}
+\label{tab:mechanism_consistency}
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+Evidence source & Architecture & Condition & $\Delta$ pixel AP $\uparrow$ \\
+\midrule
+TFR controlled-120 & PairTrace-9C & translation & +0.2093 \\
+TFR controlled-120 & PairTrace-9C & affine & +0.2467 \\
+TFR controlled-120 & PairTrace-9C & perspective & +0.2043 \\
+DESCAN-18K & FC-Siam-diff & scan reference & +0.0059--+0.0089 \\
+DESCAN-18K & FC-Siam-diff & digital reference$^{a}$ & +0.0325--+0.0881 \\
+\bottomrule
+\end{tabular}}
+
+\vspace{1mm}
+\parbox{0.98\columnwidth}{\footnotesize $^{a}$The direction is positive,
+but absolute digital-reference performance remains an operational failure
+(0.1160 AP for round-trip FC-Siam-diff).}
+\end{table}

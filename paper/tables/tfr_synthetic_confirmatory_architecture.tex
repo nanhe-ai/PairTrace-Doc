@@ -1,0 +1,32 @@
+\begin{table*}[t]
+\centering
+\caption{Selected mechanism- and architecture-defining rows from the prospective
+controlled confirmation on 120 previously unused authentic-document source
+groups. Learned rows report the mean $\pm$ sample SD across three predeclared
+seeds, with identical candidate/reference inputs and evaluation conditions.
+All numeric columns report source-group-macro pixel AP ($\uparrow$).
+Raw difference at clean is a construction sanity upper bound, not architecture
+evidence. The full matrix was pre-specified and hash-frozen before scoring and
+is provided in the supplementary material; this controlled set is not an
+official TFR benchmark.}
+\label{tab:controlled_confirmation}
+\small
+\setlength{\tabcolsep}{4pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+Family & Training & Clean & Translation & Affine & Perspective \\
+\midrule
+Raw RGB difference & non-learned & 1.0000 & 0.5195 & 0.4833 & 0.6112 \\
+SSIM distance & non-learned & 0.9514 & 0.6553 & 0.6136 & 0.8054 \\
+Signed-difference U-Net & clean & 0.8393 $\pm$ 0.0179 & 0.0909 $\pm$ 0.0294 & 0.0792 $\pm$ 0.0276 & 0.0772 $\pm$ 0.0281 \\
+PairTrace-9C & clean & 0.8266 $\pm$ 0.0242 & 0.5040 $\pm$ 0.0344 & 0.4277 $\pm$ 0.0330 & 0.4524 $\pm$ 0.0474 \\
+FC-Siam-diff & clean & 0.8807 $\pm$ 0.0118 & 0.2695 $\pm$ 0.0659 & 0.2192 $\pm$ 0.0581 & 0.2456 $\pm$ 0.0588 \\
+Signed-difference U-Net & round-trip & 0.8475 $\pm$ 0.0085 & 0.8440 $\pm$ 0.0151 & 0.8420 $\pm$ 0.0181 & 0.8443 $\pm$ 0.0147 \\
+PairTrace-9C & round-trip & 0.8079 $\pm$ 0.0048 & 0.8050 $\pm$ 0.0061 & 0.8029 $\pm$ 0.0055 & 0.8061 $\pm$ 0.0052 \\
+FC-Siam-diff & round-trip & 0.8587 $\pm$ 0.0054 & 0.8465 $\pm$ 0.0059 & 0.8420 $\pm$ 0.0041 & 0.8458 $\pm$ 0.0049 \\
+PairTrace-9C & geometry-disabled cont. & 0.8225 $\pm$ 0.0174 & 0.5958 $\pm$ 0.0857 & 0.5562 $\pm$ 0.0712 & 0.6018 $\pm$ 0.0880 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

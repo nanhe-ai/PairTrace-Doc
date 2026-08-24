@@ -1,0 +1,27 @@
+experiment:
+  name: freeze_ijdar_augmentation_ablation_registry_20260725
+  protocol: docs/ijdar_augmentation_mechanism_ablation_protocol_2026-07-25.md
+  expected_protocol_sha256: 4766ca13465cb8ca699923967f88f59b9403265e54145d30323606164c374227
+  warm_start_manifest: outputs/manifests/ijdar_augmentation_ablation_warm_starts_20260725.json
+  expected_warm_start_manifest_sha256: 4623738a29f08d122b1beef3a5dcd88f55e47db0dd315cd3ff5081e8e7cdda8f
+  seeds: [20260747, 20260763, 20260764]
+
+new_arms:
+  - {slug: reference_resize_restore, application: reference_resize_restore_only, probability_family: nonprojective}
+  - {slug: reference_single_warp, application: reference_single_warp_only, probability_family: projective}
+  - {slug: reference_blur, application: reference_blur_only, probability_family: nonprojective}
+  - {slug: reference_jpeg, application: reference_jpeg_only, probability_family: nonprojective}
+  - {slug: candidate_roundtrip, application: candidate_roundtrip_only, probability_family: projective}
+  - {slug: joint_roundtrip, application: joint_roundtrip, probability_family: projective}
+
+templates:
+  full_config: configs/ijdar_ablation_{slug}_seed{seed}_20260725.yaml
+  preflight_config: configs/ijdar_ablation_{slug}_preflight_20260725.yaml
+
+runtime:
+  holdout_read_allowed: false
+  training_allowed: false
+
+paths:
+  registry: outputs/manifests/ijdar_augmentation_ablation_registry_20260725.jsonl
+  summary: outputs/tables/ijdar_augmentation_ablation_freeze_20260725.json

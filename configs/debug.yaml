@@ -1,0 +1,15 @@
+experiment:
+  name: pairtrace_doc_toy_sanity
+  stage: toy
+  seed: 42
+  paper_evidence: false
+
+evaluation:
+  pixel_threshold: 0.5
+
+paths:
+  input_predictions: data/toy/debug_predictions.jsonl
+  output_predictions: outputs/predictions/debug_predictions.jsonl
+  metrics: outputs/tables/debug_metrics.csv
+  log: outputs/logs/debug.log
+

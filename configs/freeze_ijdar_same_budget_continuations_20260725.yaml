@@ -1,0 +1,26 @@
+experiment:
+  name: freeze_ijdar_same_budget_continuations_20260725
+  protocol: docs/ijdar_same_budget_architecture_completion_protocol_2026-07-25.md
+  expected_protocol_sha256: eb73998714909fbb6e368b9175664a54881ee4a8ca5e8d39b78278f9d3148fa2
+  warm_start_manifest: outputs/manifests/ijdar_same_budget_warm_starts_20260725.json
+  expected_warm_start_manifest_sha256: e1b6be69d226b704a96b461501e016cfb980a320c7d4f6ba4ae8479ecb4b22e4
+  seeds: [20260747, 20260763, 20260764]
+
+arms:
+  - {slug: signed_diff, arm: signed_difference_3ch}
+  - {slug: absolute_diff, arm: absolute_difference_3ch}
+  - {slug: 6ch, arm: candidate_reference_6ch}
+  - {slug: fc_siam_diff, arm: fc_siam_diff}
+  - {slug: fc_siam_conc, arm: fc_siam_conc}
+
+templates:
+  roundtrip_config: configs/pairtrace_confirmatory_roundtrip_{slug}_seed{seed}_20260722.yaml
+  identity_config: configs/ijdar_same_budget_identity_{slug}_seed{seed}_20260725.yaml
+
+runtime:
+  holdout_read_allowed: false
+  training_allowed: false
+
+paths:
+  registry: outputs/manifests/ijdar_same_budget_continuation_registry_20260725.jsonl
+  summary: outputs/tables/ijdar_same_budget_continuation_freeze_20260725.json

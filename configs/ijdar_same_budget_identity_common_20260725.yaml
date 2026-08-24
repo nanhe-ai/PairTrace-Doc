@@ -1,0 +1,108 @@
+experiment:
+  name: ijdar_same_budget_identity_continuation
+  stage: ijdar_same_start_same_budget_identity_continuation
+  seed: 20260747
+  arm: signed_difference_3ch
+  paper_evidence: false
+  protocol: docs/ijdar_same_budget_architecture_completion_protocol_2026-07-25.md
+  expected_protocol_sha256: eb73998714909fbb6e368b9175664a54881ee4a8ca5e8d39b78278f9d3148fa2
+  warm_start_manifest: outputs/manifests/ijdar_same_budget_warm_starts_20260725.json
+  expected_warm_start_manifest_sha256: e1b6be69d226b704a96b461501e016cfb980a320c7d4f6ba4ae8479ecb4b22e4
+
+data:
+  manifest: data/processed/aiforge_resampling_robust_teacher_1000.jsonl
+  expected_manifest_sha256: 6d42577767bf4af18fac8d6789ab5e88edb9bfda678d4f2a157a08dd4a25ace5
+  expected_freeze_id: 78e064697f80527daa1d4c1cd15df8c763dd3de60f96dcf0c3dda70e1b305736
+  expected_train_records: 1000
+  max_train_pairs: null
+  validation_manifest: data/processed/aiforge_generator_balanced_1000.jsonl
+  expected_validation_manifest_sha256: 26c261adc68f86de733db02dab60f6849dd618e90ac5cb5a81cbd639ce5edc11
+  validation_role_field: pilot_role
+  validation_role: validation
+  expected_validation_records: 150
+  max_validation_pairs: null
+
+model:
+  architecture: resnet18_unet_signed_difference_same_step_identity_continuation
+  teacher_input_channels: 3
+  encoder_weights: downloads/torchvision/resnet18-f37072fd.pth
+  encoder_weights_sha256: f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec
+  warm_start_checkpoint: outputs/checkpoints/pairtrace_confirmatory_clean_signed_diff_seed20260747.pt
+  warm_start_checkpoint_sha256: 5c10d60e2d1ed49eaaac2f76b18254f64959963c16adf4ed06fdba0e5584ba2f
+  teacher_conv1_coefficients: {forged: 0.25, authentic: 0.25, signed_difference: 0.50}
+
+preprocessing:
+  cache_schema_version: 1
+  max_side: 1024
+  crop_size: 512
+  imagenet_mean: [0.485, 0.456, 0.406]
+  imagenet_std: [0.229, 0.224, 0.225]
+
+sampling:
+  generator_field: selected_generator
+  generator_probabilities: {gemini-nano: 0.3333333333333333, openai-gpt-image-2: 0.3333333333333333, qwen-inpaint: 0.3333333333333334}
+  teacher_forged_positive_probability: 0.50
+  teacher_forged_random_probability: 0.25
+  teacher_authentic_random_probability: 0.25
+  brightness_contrast_probability: 0.50
+  brightness_delta: 0.15
+  contrast_delta: 0.15
+  jpeg_probability: 0.25
+  jpeg_quality_min: 75
+  jpeg_quality_max: 100
+
+augmentation:
+  geometry_probabilities: {clean: 1.0, translation: 0.0, affine: 0.0, perspective: 0.0}
+  translation_max_pixels: 12.0
+  affine_rotation_max_degrees: 2.0
+  affine_scale_delta: 0.02
+  affine_translation_max_pixels: 12.0
+  perspective_corner_jitter_fraction: 0.01
+  interpolation: bilinear
+  border_mode: reflect_101
+  transform_application: reference_clean_identity_only
+
+training:
+  epochs: 6
+  steps_per_epoch: 500
+  expected_optimizer_steps: 3000
+  batch_size: 8
+  num_workers: 4
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  bce_positive_weight: 4.0
+  bce_loss_weight: 1.0
+  dice_loss_weight: 1.0
+  amp: true
+  gradient_clip_norm: 1.0
+  checkpoint_rule: fixed_final_epoch
+  validation_tile_size: 512
+  validation_tile_stride: 384
+  validation_tile_batch_size: 8
+
+operating_point:
+  candidate_min: 0.00
+  candidate_max: 1.00
+  candidate_step: 0.01
+  max_authentic_fpr: 0.01
+
+runtime:
+  device: cuda:0
+  gpu_launch_authorized: true
+  resampling_teacher_training_authorized: true
+  viewed_development_read_allowed: false
+  unseen_development_read_allowed: false
+  final_reserve_read_allowed: false
+  multi_seed_authorized: false
+  environment: {OMP_NUM_THREADS: "4", MKL_NUM_THREADS: "4", OPENBLAS_NUM_THREADS: "4"}
+
+paths:
+  scratch_env: PAIRTRACE_SCRATCH
+  scratch_default: ../autodl-tmp/pairtrace-doc
+  pair_cache_dir: data/cache/student_pairs_1024
+  checkpoint: ../autodl-tmp/pairtrace-doc/ijdar_revision/checkpoints/ijdar_same_budget_identity_signed_diff_seed20260747.pt
+  epoch_log: outputs/logs/ijdar_same_budget_identity_signed_diff_seed20260747_epochs.jsonl
+  summary: outputs/tables/ijdar_same_budget_identity_signed_diff_seed20260747_summary.json
+  log: outputs/logs/ijdar_same_budget_identity_signed_diff_seed20260747.log
+  prediction_records: outputs/predictions/ijdar_same_budget_identity_signed_diff_seed20260747_validation.jsonl
+  metrics: outputs/tables/ijdar_same_budget_identity_signed_diff_seed20260747_validation.csv

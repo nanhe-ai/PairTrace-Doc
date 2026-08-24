@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper."
+title: "PairTrace-Doc"
+type: software
+version: 0.1.0
+date-released: 2026-08-24
+license: Apache-2.0
+authors:
+  - family-names: Xiao
+    given-names: Han
+    orcid: "https://orcid.org/0009-0005-0153-7672"
+  - family-names: Xue
+    given-names: Maorui
+  - family-names: Yang
+    given-names: Yafeng
+  - family-names: Yan
+    given-names: Hongcan

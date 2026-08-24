@@ -1,0 +1,57 @@
+experiment:
+  name: calibrate_visualdiff_aiforge_development100_20260725
+  stage: aiforge_development100_calibration
+  protocol: docs/ijdar_direct_paired_baseline_protocol_2026-07-25.md
+  expected_protocol_sha256: 6c5f4958a79609f4e19efb896cdc156251db564c8407773aa746004f68142524
+  source: src/pairtrace_doc/baselines/visualdiff_style.py
+  expected_source_sha256: 643fcf30532ef504a1381158f28ed317fffe0fea67a7c838ade0185f4c43facd
+  paper_evidence: false
+  post_hoc_existing_evaluation: false
+
+input:
+  manifest: data/processed/aiforge_pair_at_inference_100.jsonl
+  expected_manifest_sha256: 4311d20827ac886fb1e8323c8918a79d51363e81484d1212ff13dcdddf32f76a
+  expected_records: 100
+  fields:
+    record_id: sample_id
+    group_id: source_group_id
+    candidate: image
+    candidate_sha256: image_sha256
+    reference: authentic
+    reference_sha256: authentic_sha256
+    mask: mask
+    mask_sha256: mask_sha256
+    attack: assigned_tool
+
+preprocessing:
+  max_side: 1024
+  opencv_version: 5.0.0
+
+image_score:
+  top_fraction: 0.01
+
+operating_point:
+  candidate_min: 0.0
+  candidate_max: 1.0
+  candidate_step: 0.001
+  objective: development_document_macro_pixel_f1
+  authentic_pixel_fpr_max: 0.01
+  authentic_image_fpr_max: 0.01
+
+gate:
+  minimum_success_fraction: 0.90
+
+runtime:
+  cpu_inference_authorized: true
+  threshold_selection_authorized: true
+  model_training_authorized: false
+  workers: 1
+
+paths:
+  scratch_env: PAIRTRACE_SCRATCH
+  scratch_default: ../autodl-tmp/pairtrace-doc
+  score_cache_dir: data/cache/ijdar_visualdiff_style_v1
+  predictions: outputs/predictions/visualdiff_aiforge_development100_20260725.jsonl
+  metrics: outputs/tables/visualdiff_aiforge_development100_metrics_20260725.csv
+  thresholds: outputs/tables/visualdiff_aiforge_development100_thresholds_20260725.json
+  summary: outputs/tables/visualdiff_aiforge_development100_summary_20260725.json

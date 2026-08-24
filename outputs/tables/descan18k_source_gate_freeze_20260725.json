@@ -1,0 +1,22 @@
+{
+  "archive_bytes_read": false,
+  "archive_downloaded_by_pipeline": false,
+  "bound_sha256": {
+    "editor_source": "2f604a31c55c68b7393a061f38c38462d606a8cff6bf711671769ea9f74855ca",
+    "editor_specification": "034203984610802f9e445bdb6c6be4408321325030b1b559ca44152ac9c060a7",
+    "protocol": "2280aa5193e6b07be8c4dd23b780cc21c19e63f3ac86d2b249ef7a0b56dfb9ec"
+  },
+  "clarification_request_draft_sha256": "6483de921adae153534f6d8e31d1ab7547f6acd72e242aa26accdfb88c9eae31",
+  "config_sha256": "0d9fe107bced049aac6a08506442a7c8b64bd911a76b134835cb1fcb93e5e6ef",
+  "dataset_image_decoded": false,
+  "license_gate_open": false,
+  "model_scoring_started": false,
+  "next_authorized_action": "obtain_written_author_clarification_or_institutional_approval",
+  "paper_evidence": false,
+  "registry": "outputs/manifests/descan18k_source_gate_registry_20260725.jsonl",
+  "registry_sha256": "294a5b58b3ec9ce24d277589f0a5e6c6a3b624e5c01d8ea5915f864d72338dc0",
+  "source_archive_expected_bytes": 767709023,
+  "source_archive_expected_sha256": "93c904410f409c1a393e5e79b35bf1748cb5d0ad2d18d1e1958d32213a9d8304",
+  "source_expected_pairs": 360,
+  "status": "descan18k_source_frozen_license_gate_closed"
+}

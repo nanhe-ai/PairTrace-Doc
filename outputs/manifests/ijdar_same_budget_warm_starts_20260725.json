@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-07-25",
+  "paper_evidence": false,
+  "purpose": "freeze warm starts for five missing identity-continuation controls",
+  "protocol": "docs/ijdar_same_budget_architecture_completion_protocol_2026-07-25.md",
+  "holdout_read": false,
+  "seeds": [20260747, 20260763, 20260764],
+  "records": [
+    {"slug": "signed_diff", "arm": "signed_difference_3ch", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_signed_diff_seed20260747.pt", "sha256": "5c10d60e2d1ed49eaaac2f76b18254f64959963c16adf4ed06fdba0e5584ba2f"},
+    {"slug": "signed_diff", "arm": "signed_difference_3ch", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_signed_diff_seed20260763.pt", "sha256": "9d68c68a825164dbe78a37a01dbb55d90d518f7cfc771a005e9b164d37e53c53"},
+    {"slug": "signed_diff", "arm": "signed_difference_3ch", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_signed_diff_seed20260764.pt", "sha256": "3e31c54e79c1080114e4b470b7b844faefdf62a1f75878fa0a5fec43f310c2c9"},
+    {"slug": "absolute_diff", "arm": "absolute_difference_3ch", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_absolute_diff_seed20260747.pt", "sha256": "9950d068f8dd205211b42b4a8cfdaa23b82cf5f1a418911a9ccadfbe1d9e6f77"},
+    {"slug": "absolute_diff", "arm": "absolute_difference_3ch", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_absolute_diff_seed20260763.pt", "sha256": "8c5ba1deeed8d4108a1c19770a06a41517de397df3cc0d276efabf35f7b1219d"},
+    {"slug": "absolute_diff", "arm": "absolute_difference_3ch", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_absolute_diff_seed20260764.pt", "sha256": "18c037169b087e8e4b4256bd5262920be0ca45a66d965dec2054b8bf9830af74"},
+    {"slug": "6ch", "arm": "candidate_reference_6ch", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_6ch_seed20260747.pt", "sha256": "bf58a39ee422da30b71439f8693e8bb222e36f6e49e38866fa3057f5f80582e3"},
+    {"slug": "6ch", "arm": "candidate_reference_6ch", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_6ch_seed20260763.pt", "sha256": "15075413c2a81caeb8e5aba9656cea54fb83d278cc872196f3c9905f2376b720"},
+    {"slug": "6ch", "arm": "candidate_reference_6ch", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_6ch_seed20260764.pt", "sha256": "3ada5d25864ca282d99d01134d64a6f2dd598e403bdd2300e1d35a6259db5054"},
+    {"slug": "fc_siam_diff", "arm": "fc_siam_diff", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_diff_seed20260747.pt", "sha256": "cd5b2d5f5121899591d9f4efd8e5185c549f1dbe7c7ab20bed4039b9c4313e43"},
+    {"slug": "fc_siam_diff", "arm": "fc_siam_diff", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_diff_seed20260763.pt", "sha256": "0ba47942f37cd288bc5fb9c39e24f86bf6588dbc16260b545cb93f0aaf0fd5fe"},
+    {"slug": "fc_siam_diff", "arm": "fc_siam_diff", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_diff_seed20260764.pt", "sha256": "c9bd53801b7afce93b0b165f9e5966136844b1697a62be547c1722672ccd5669"},
+    {"slug": "fc_siam_conc", "arm": "fc_siam_conc", "seed": 20260747, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_conc_seed20260747.pt", "sha256": "c01f9c7b304ff0658c180fe54fbbaaa33cb77038f36071d7adbd7de3f037b00a"},
+    {"slug": "fc_siam_conc", "arm": "fc_siam_conc", "seed": 20260763, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_conc_seed20260763.pt", "sha256": "9819afddadee8e2e0293e55a685c6c4e45aa74088c7b124026fc3baafa5bcd0e"},
+    {"slug": "fc_siam_conc", "arm": "fc_siam_conc", "seed": 20260764, "checkpoint": "outputs/checkpoints/pairtrace_confirmatory_clean_fc_siam_conc_seed20260764.pt", "sha256": "bae6e347d1a597ec659fadcd582ffcd836d70dfd424c64a7bae4a75dced6aaeb"}
+  ]
+}
